@@ -1,24 +1,29 @@
 import re
-from pathlib import Path
 
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 
-MODEL_DIR = Path(__file__).resolve().parent.parent / "model"
+# ---------------------------------------------------------
+# Hugging Face Model
+# ---------------------------------------------------------
+
+MODEL_ID = "AbdelrahmanAkl/SAMSum-BART-Dialogue-Summarization"
 
 
 def load_model():
-    """Load the fine-tuned BART model and tokenizer."""
+    """Load the fine-tuned BART model from Hugging Face."""
 
     device = torch.device(
         "cuda" if torch.cuda.is_available() else "cpu"
     )
 
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
+    tokenizer = AutoTokenizer.from_pretrained(
+        MODEL_ID
+    )
 
     model = AutoModelForSeq2SeqLM.from_pretrained(
-        MODEL_DIR
+        MODEL_ID
     )
 
     # Explicit BART generation configuration
@@ -70,6 +75,7 @@ def summarize_dialogue(
     }
 
     with torch.no_grad():
+
         generated_ids = model.generate(
             **inputs,
             max_length=max_summary_length,
@@ -86,7 +92,11 @@ def summarize_dialogue(
         clean_up_tokenization_spaces=False,
     )
 
-    return re.sub(r"\s+", " ", summary).strip()
+    return re.sub(
+        r"\s+",
+        " ",
+        summary,
+    ).strip()
 
 
 if __name__ == "__main__":

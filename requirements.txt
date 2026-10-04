@@ -1,5 +1,6 @@
-﻿transformers==5.18.0
+﻿streamlit==1.65.0
+torch
+transformers==5.18.0
 sentencepiece==0.2.2
 safetensors
-streamlit
 huggingface_hub

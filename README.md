@@ -44,7 +44,6 @@ The application allows users to enter a conversation, configure generation param
 </a>
 
 </p>
----
 
 ## ✨ Key Features
 

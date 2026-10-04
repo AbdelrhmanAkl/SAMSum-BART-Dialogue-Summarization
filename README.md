@@ -29,11 +29,11 @@ The application allows users to enter a conversation, configure generation param
 
 ## 🌐 Demo & Resources
 
-| Resource              | Link                                                                       |
-| --------------------- | -------------------------------------------------------------------------- |
-| 🚀 Live Demo          | `https://samsum-bart-dialogue-summarization.streamlit.app/`                |
-| 🤗 Hugging Face Model | `https://huggingface.co/AbdelrahmanAkl/SAMSum-BART-Dialogue-Summarization` |
-| 💻 GitHub Repository  | `https://github.com/AbdelrhmanAkl/SAMSum-BART-Dialogue-Summarization`      |
+| Resource | Link |
+|----------|------|
+| 🚀 Live Demo | [Streamlit Demo](https://samsum-bart-dialogue-summarization.streamlit.app/) |
+| 🤗 Hugging Face Model | [Model Repository](https://huggingface.co/AbdelrahmanAkl/SAMSum-BART-Dialogue-Summarization) |
+| 💻 GitHub Repository | [Source Code](https://github.com/AbdelrhmanAkl/SAMSum-BART-Dialogue-Summarization) |
 
 ---
 

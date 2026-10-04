@@ -1,0 +1,23 @@
+{
+  "base_model": "facebook/bart-large-cnn",
+  "dataset": "knkarthick/samsum",
+  "task": "Dialogue Summarization",
+  "max_source_length": 512,
+  "max_target_length": 96,
+  "test_samples": 819,
+  "test_rouge1": 40.5838,
+  "test_rouge2": 20.0547,
+  "test_rougeL": 31.0298,
+  "test_rougeLsum": 31.0732,
+  "baseline_rouge1": 31.03,
+  "baseline_rouge2": 10.36,
+  "baseline_rougeL": 23.34,
+  "fine_tuned_rouge1": 40.58,
+  "fine_tuned_rouge2": 20.12,
+  "fine_tuned_rougeL": 31.02,
+  "training_epochs": 3,
+  "learning_rate": 5e-05,
+  "effective_batch_size": 16,
+  "fp16": true,
+  "gradient_checkpointing": true
+}

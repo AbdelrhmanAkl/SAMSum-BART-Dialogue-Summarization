@@ -1,0 +1,73 @@
+{
+  "project_name": "BART Large CNN Fine-Tuning for Dialogue Summarization",
+  "task": "Abstractive Dialogue Summarization",
+  "base_model": "facebook/bart-large-cnn",
+  "dataset": {
+    "name": "knkarthick/samsum",
+    "train_samples": 14731,
+    "validation_samples": 818,
+    "test_samples": 819
+  },
+  "tokenization": {
+    "max_source_length": 512,
+    "max_target_length": 96,
+    "dynamic_padding": true
+  },
+  "training": {
+    "epochs": 3,
+    "learning_rate": 5e-05,
+    "weight_decay": 0.01,
+    "per_device_train_batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_size": 16,
+    "warmup_steps": 500,
+    "fp16": true,
+    "gradient_checkpointing": true,
+    "generation_num_beams": 4
+  },
+  "evaluation": {
+    "test_samples": 819,
+    "baseline": {
+      "rouge1": 31.03,
+      "rouge2": 10.36,
+      "rougeL": 23.34,
+      "rougeLsum": 23.34
+    },
+    "fine_tuned": {
+      "rouge1": 40.58,
+      "rouge2": 20.12,
+      "rougeL": 31.02,
+      "rougeLsum": 31.05
+    },
+    "improvement": {
+      "rouge1": 9.55,
+      "rouge2": 9.76,
+      "rougeL": 7.67,
+      "rougeLsum": 7.71
+    }
+  },
+  "error_analysis": {
+    "reference_mean_length": 20.02,
+    "prediction_mean_length": 43.9,
+    "mean_length_ratio": 2.89,
+    "potential_over_generation_cases": 601,
+    "test_samples": 819
+  },
+  "inference": {
+    "max_source_length": 512,
+    "max_summary_length": 96,
+    "min_summary_length": 8,
+    "num_beams": 4,
+    "no_repeat_ngram_size": 3,
+    "length_penalty": 1.0
+  },
+  "hardware": {
+    "training_gpu": "NVIDIA Tesla T4",
+    "cuda": true
+  },
+  "export": {
+    "format": "SafeTensors",
+    "model_file": "model.safetensors",
+    "approximate_model_size_gb": 1.55
+  }
+}
